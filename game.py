@@ -13,18 +13,6 @@ class Game:
 
 # [...]
 
-def is_valid(self, word):
-        if not word:
-            return False
-        letters = self.grid.copy() # Consume letters from the grid
-        for letter in word:
-            if letter in letters:
-                letters.remove(letter)
-            else:
-                return False
-        return True
-
-
 def test_empty_word_is_invalid(self):
         new_game = Game()
         self.assertIs(new_game.is_valid(''), False)
@@ -41,4 +29,14 @@ def test_is_invalid(self):
         self.assertIs(new_game.is_valid('SANDWICH'), False)
         self.assertEqual(new_game.grid, list('KWEUEAKRZ')) # S'assurer que la grille n'a pas été modifiée   
 
-         
+
+def is_valid(self, word):
+        if not word:
+            return False
+        letters = self.grid.copy() # Consume letters from the grid
+        for letter in word:
+            if letter in letters:
+                letters.remove(letter)
+            else:
+                return False
+        return True         
